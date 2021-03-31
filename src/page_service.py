@@ -54,7 +54,8 @@ class PageService:
         link_list = page.find_all('a', text='Notenübersicht', href=True)
         self.browser.follow_link(link_list[0])
         page = self.browser.get_current_page()
-        link_list = page.find_all('a', title=re.compile(f'(?=.*{self.graduation})(?=.*{self.subject})'), href=True)
+        # link_list = page.find_all('a', title=re.compile(f'(?=.*{self.graduation})(?=.*{self.subject})'), href=True)
+        link_list = page.find_all('a', title=re.compile(f'Leistungen*'), href=True)
         self.browser.follow_link(link_list[0])
         page = self.browser.get_current_page()
 
