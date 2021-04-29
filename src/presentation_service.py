@@ -8,8 +8,7 @@ class PresentationService:
     big_ratio = 0
 
     def __init__(self):
-        window_size = os.popen('stty size', 'r').read().split()
-        self.window_width = float(window_size[1])
+        self.window_width = os.get_terminal_size().columns
         self.small_ratio = int(self.window_width*0.08)
         self.big_ratio = int(self.window_width*0.3)
 
